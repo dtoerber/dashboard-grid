@@ -16,4 +16,11 @@ export class DashboardComponent implements OnInit {
     // this.corona.cases$.subscribe(data => (this.cases = data));
     this.cases = (data as any).default;
   }
+
+  expand() {
+    console.log(`expand:`);
+  }
+  remove() {
+    console.log(`remove:`);
+  }
 }

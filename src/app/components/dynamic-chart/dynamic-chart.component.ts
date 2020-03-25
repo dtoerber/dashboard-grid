@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
 import { Label } from 'ng2-charts';
 
@@ -8,6 +8,7 @@ import { Label } from 'ng2-charts';
   styleUrls: ['./dynamic-chart.component.scss'],
 })
 export class DynamicChartComponent implements OnInit {
+  @Input() type: ChartType = 'bar';
   public barChartOptions: ChartOptions = {
     responsive: true,
     // We use these empty structures as placeholders for dynamic theming.
@@ -39,7 +40,9 @@ export class DynamicChartComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.barChartType = this.type;
+  }
 
   // events
   public chartClicked({
@@ -60,9 +63,5 @@ export class DynamicChartComponent implements OnInit {
     active: {}[];
   }): void {
     console.log(event, active);
-  }
-
-  public randomize(): void {
-    this.barChartType = this.barChartType === 'bar' ? 'line' : 'bar';
   }
 }

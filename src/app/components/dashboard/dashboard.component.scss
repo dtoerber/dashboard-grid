@@ -1,8 +1,7 @@
 .grid-container {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
   grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 }
 
 .grid-item {
@@ -16,6 +15,19 @@
 .pie {
   background-color: rgba(255, 255, 255, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
-  grid-column-start: 1;
-  grid-column-end: 3;
+}
+
+.more-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.dashboard-card-content {
+  text-align: center;
+}
+
+.line-chart {
+  grid-column: 2;
+  grid-row: 1 / span 2;
 }

@@ -51,6 +51,7 @@ import {
     MatGridListModule,
     MatCardModule,
     MatMenuModule,
+    MatIconModule,
     ChartsModule,
   ],
   providers: [],
