@@ -23,11 +23,6 @@
   right: 10px;
 }
 
-.dashboard-card-content {
-  text-align: center;
-}
-
-.line-chart {
-  grid-column: 2;
-  grid-row: 1 / span 2;
+.span-row-2 {
+  grid-row: span 2;
 }

@@ -21,7 +21,7 @@
       <app-pie-chart [data]="cases"></app-pie-chart>
     </mat-card-content>
   </mat-card>
-  <mat-card class="line-chart">
+  <mat-card class="line-chart span-row-2">
     <mat-card-header>
       <mat-card-title>
         Chart 2
@@ -65,11 +65,13 @@
       <app-dynamic-chart type="line"></app-dynamic-chart>
     </mat-card-content>
   </mat-card>
-  <app-material-card></app-material-card>
+  <div class="span-row-2">
+    <app-material-card></app-material-card>
+  </div>
   <mat-card>
     <mat-card-header>
       <mat-card-title>
-        Chart 4
+        Chart 5
         <button
           mat-icon-button
           class="more-button"
@@ -91,7 +93,7 @@
   <mat-card>
     <mat-card-header>
       <mat-card-title>
-        Chart 5
+        Chart 6
         <button
           mat-icon-button
           class="more-button"
