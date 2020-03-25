@@ -1,27 +1,8 @@
 <div class="grid-container">
+  <div class="span-row-2">
+    <app-material-card></app-material-card>
+  </div>
   <mat-card>
-    <mat-card-header>
-      <mat-card-title>
-        Chart 1
-        <button
-          mat-icon-button
-          class="more-button"
-          [matMenuTriggerFor]="menu"
-          aria-label="Toggle menu"
-        >
-          <mat-icon>more_vert</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu" xPosition="before">
-          <button mat-menu-item (click)="expand()">Expand</button>
-          <button mat-menu-item (click)="remove()">Remove</button>
-        </mat-menu>
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <app-pie-chart [data]="cases"></app-pie-chart>
-    </mat-card-content>
-  </mat-card>
-  <mat-card class="line-chart span-row-2">
     <mat-card-header>
       <mat-card-title>
         Chart 2
@@ -40,10 +21,10 @@
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <app-line-chart></app-line-chart>
+      <app-pie-chart [data]="cases"></app-pie-chart>
     </mat-card-content>
   </mat-card>
-  <mat-card>
+  <mat-card class="span-row-2 grid-item">
     <mat-card-header>
       <mat-card-title>
         Chart 3
@@ -62,12 +43,31 @@
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
+      <app-line-chart></app-line-chart>
+    </mat-card-content>
+  </mat-card>
+  <mat-card class="grid-item">
+    <mat-card-header>
+      <mat-card-title>
+        Chart 4
+        <button
+          mat-icon-button
+          class="more-button"
+          [matMenuTriggerFor]="menu"
+          aria-label="Toggle menu"
+        >
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+          <button mat-menu-item (click)="expand()">Expand</button>
+          <button mat-menu-item (click)="remove()">Remove</button>
+        </mat-menu>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
       <app-dynamic-chart type="line"></app-dynamic-chart>
     </mat-card-content>
   </mat-card>
-  <div class="span-row-2">
-    <app-material-card></app-material-card>
-  </div>
   <mat-card>
     <mat-card-header>
       <mat-card-title>
@@ -90,7 +90,7 @@
       <app-dynamic-chart type="bar"></app-dynamic-chart>
     </mat-card-content>
   </mat-card>
-  <mat-card>
+  <mat-card class="span-col-2">
     <mat-card-header>
       <mat-card-title>
         Chart 6

@@ -10,7 +10,7 @@ import * as pluginAnnotations from 'chartjs-plugin-annotation';
 })
 export class LineChartComponent implements OnInit {
   public lineChartData: ChartDataSets[] = [
-    { data: [20, 21, 21, 22, 22, 23], label: 'Series A' },
+    { data: [20, 21, 21, 22, 22, 23, 24], label: 'Series A' },
   ];
   public lineChartLabels: Label[] = [
     'January',
