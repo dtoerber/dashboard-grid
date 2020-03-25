@@ -1,34 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnChanges, Input } from '@angular/core';
 import { ChartType, ChartOptions } from 'chart.js';
-import {
-  Label,
-  monkeyPatchChartJsLegend,
-  monkeyPatchChartJsTooltip,
-} from 'ng2-charts';
+import { Label } from 'ng2-charts';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
+import { Corona19 } from 'src/app/models';
 
 @Component({
   selector: 'app-pie-chart',
   templateUrl: './pie-chart.component.html',
   styleUrls: ['./pie-chart.component.scss'],
 })
-export class PieChartComponent implements OnInit {
-  // Pie
-  // public pieChartOptions: ChartOptions = {
-  //   responsive: true,
-  //   maintainAspectRatio: true,
-  //   legend: {
-  //     position: 'top',
-  //   },
-  //   plugins: {
-  //     datalabels: {
-  //       formatter: (value, ctx) => {
-  //         const label = ctx.chart.data.labels[ctx.dataIndex];
-  //         return label;
-  //       },
-  //     },
-  //   },
-  // };
+export class PieChartComponent implements OnChanges {
+  @Input() data: Corona19[];
+
   public pieChartOptions: ChartOptions = {
     responsive: true,
     maintainAspectRatio: true,
@@ -38,30 +21,30 @@ export class PieChartComponent implements OnInit {
     plugins: {
       datalabels: {
         formatter: (value, ctx) => {
-          return '';
+          const label = ctx.chart.data.labels[ctx.dataIndex];
+          return label;
         },
       },
     },
   };
 
-  public pieChartLabels: Label[] = ['Download', 'Store', 'Post'];
-  public pieChartData: number[] = [300, 500, 100];
-  public pieChartType: ChartType = 'pie';
-  public pieChartLegend = true;
-  public pieChartPlugins = [pluginDataLabels];
-  public pieChartColors = [
-    // {
-    //   backgroundColor: [
-    //     'rgba(255,0,0,0.3)',
-    //     'rgba(0,255,0,0.3)',
-    //     'rgba(0,0,255,0.3)',
-    //   ],
-    // },
+  pieChartLabels: Label[] = [];
+  pieChartData: number[] = [];
+  pieChartType: ChartType = 'pie';
+  pieChartLegend = true;
+  pieChartPlugins = [pluginDataLabels];
+  pieChartColors = [
+    {
+      backgroundColor: ['red', 'orange', 'yellow', 'cyan', 'salmon'],
+    },
   ];
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnChanges() {
+    this.pieChartData = this.data.slice(0, 5).map(c => c.cases);
+    this.pieChartLabels = this.data.slice(0, 5).map(c => c.country);
+  }
 
   chartClicked(e: any): void {
     if (e.active.length > 0) {
