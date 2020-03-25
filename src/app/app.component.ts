@@ -2,9 +2,8 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  template: `
+    <app-nav></app-nav>
+  `,
 })
-export class AppComponent {
-  title = 'dashboard-grid';
-}
+export class AppComponent {}
