@@ -2,29 +2,7 @@
   <div class="span-row-2">
     <app-material-card></app-material-card>
   </div>
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>
-        Chart 2
-        <button
-          mat-icon-button
-          class="more-button"
-          [matMenuTriggerFor]="menu"
-          aria-label="Toggle menu"
-        >
-          <mat-icon>more_vert</mat-icon>
-        </button>
-        <mat-menu #menu="matMenu" xPosition="before">
-          <button mat-menu-item (click)="expand()">Expand</button>
-          <button mat-menu-item (click)="remove()">Remove</button>
-        </mat-menu>
-      </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <app-pie-chart [data]="cases"></app-pie-chart>
-    </mat-card-content>
-  </mat-card>
-  <mat-card class="span-row-2 grid-item">
+  <mat-card class="span-row-2">
     <mat-card-header>
       <mat-card-title>
         Chart 3
@@ -46,7 +24,7 @@
       <app-line-chart></app-line-chart>
     </mat-card-content>
   </mat-card>
-  <mat-card class="grid-item">
+  <mat-card>
     <mat-card-header>
       <mat-card-title>
         Chart 4
@@ -110,6 +88,28 @@
     </mat-card-header>
     <mat-card-content>
       <app-bar-chart></app-bar-chart>
+    </mat-card-content>
+  </mat-card>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>
+        Chart 2
+        <button
+          mat-icon-button
+          class="more-button"
+          [matMenuTriggerFor]="menu"
+          aria-label="Toggle menu"
+        >
+          <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before">
+          <button mat-menu-item (click)="expand()">Expand</button>
+          <button mat-menu-item (click)="remove()">Remove</button>
+        </mat-menu>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <app-pie-chart [data]="cases"></app-pie-chart>
     </mat-card-content>
   </mat-card>
 </div>
