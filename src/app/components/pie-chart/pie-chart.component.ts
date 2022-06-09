@@ -10,8 +10,7 @@ import { Corona19 } from 'src/app/models';
   styleUrls: ['./pie-chart.component.scss'],
 })
 export class PieChartComponent implements OnChanges {
-  @Input() data: Corona19[];
-
+  @Input() data: any;
   public pieChartOptions: ChartOptions = {
     responsive: true,
     maintainAspectRatio: true,
@@ -28,8 +27,12 @@ export class PieChartComponent implements OnChanges {
     },
   };
 
-  pieChartLabels: Label[] = [];
-  pieChartData: number[] = [];
+  public pieChartLabels: Label[] = [
+    ['Download', 'Sales'],
+    ['In', 'Store', 'Sales'],
+    'Mail Sales',
+  ];
+  public pieChartData: number[] = [300, 500, 100];
   pieChartType: ChartType = 'pie';
   pieChartLegend = true;
   pieChartPlugins = [pluginDataLabels];
@@ -42,8 +45,8 @@ export class PieChartComponent implements OnChanges {
   constructor() {}
 
   ngOnChanges() {
-    this.pieChartData = this.data.slice(0, 5).map(c => c.cases);
-    this.pieChartLabels = this.data.slice(0, 5).map(c => c.country);
+    this.pieChartData = this.data.slice(0, 5).map((c) => c.cases);
+    this.pieChartLabels = this.data.slice(0, 5).map((c) => c.country);
   }
 
   chartClicked(e: any): void {
