@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class Corona19Service {
-  casesUrl = 'https://corona.lmao.ninja/countries';
+  casesUrl = 'https://corona.lmao.ninja/v3/covid-19/countries';
 
   cases$: Observable<any> = this.http.get(this.casesUrl);
 
